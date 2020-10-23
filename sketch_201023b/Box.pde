@@ -13,8 +13,12 @@ class Box {
 
   // Constructor
   Box(float x, float y) {
-    w = random(4, 16);
-    h = random(4, 16);
+    //w = random(4, 16);
+    //h = random(4, 16);
+    
+    w = 2;
+    h = 200;
+    
     // Add the box to the box2d world
     makeBody(new Vec2(x, y), w, h);
   }

@@ -14,7 +14,7 @@ ArrayList<Boundary> boundaries;
 ArrayList<Box> boxes;
 
 void setup() {
-  size(640,360);
+  size(900,900);
   smooth();
 
   // Initialize box2d physics and create the world
@@ -28,8 +28,18 @@ void setup() {
   boundaries = new ArrayList<Boundary>();
 
   // Add a bunch of fixed boundaries
-  boundaries.add(new Boundary(width/4,height-5,width/2-50,10));
-  boundaries.add(new Boundary(3*width/4,height-50,width/2-50,10));
+  boundaries.add(new Boundary(0,450,10,900));
+  boundaries.add(new Boundary(890,450,10,900));
+  boundaries.add(new Boundary(450,890,900,10));
+  
+  //boundaries.add(new Boundary(3*width/4,height-50,width/2-50,10));
+  //boundaries.add(new Boundary(3*width/4,height-50,10,width-50));
+  
+  for (int i = 0; i<75; i++){
+    Box p = new Box(width/2,30);
+    boxes.add(p);
+  }
+
 }
 
 void draw() {
@@ -39,10 +49,11 @@ void draw() {
   box2d.step();
 
   // Boxes fall from the top every so often
-  if (random(1) < 0.2) {
-    Box p = new Box(width/2,30);
-    boxes.add(p);
-  }
+  //if (random(1) < 0.1) {
+  //  Box p = new Box(width/2,30);
+  //  boxes.add(p);
+  //}
+  
 
   // Display all the boundaries
   for (Boundary wall: boundaries) {
